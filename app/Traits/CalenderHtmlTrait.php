@@ -28,17 +28,6 @@ trait CalenderHtmlTrait
         return new DateTime($date->year.'-'.$date->month.'-'.$date->day);
     }
 
-    public function checkTodayDate($date):string
-    {
-        $today = $this->getDateComponents();
-        $date = $this->getDateComponents($date);
-        if ($today->format('y-m-d') == $date->format('y-m-d')) {
-            return 'today-date';
-        }
-        return 'day-date';
-    }
-
-
     public function getDayOfWeeksRow(array $weekNames):string
     {
         $row = '<tr>';
@@ -74,7 +63,7 @@ trait CalenderHtmlTrait
                 $dayOfWeek = 0;
             }
 
-            $rows .= sprintf('<td class="day"><span class="%s">%s=%s</span></td>', $this->checkTodayDate($date), $date->day, $date->score);
+            $rows .= sprintf('<td class="day score-%s">%s</td>', $date->score, $date->day);
             
             $dayOfWeek++;
         }

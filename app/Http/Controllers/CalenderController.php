@@ -6,6 +6,7 @@ use App\Models\Calender;
 use App\Models\Zodiac;
 use App\Traits\CalenderHtmlTrait;
 use App\Traits\CalenderTrait;
+use DateTime;
 use Illuminate\Http\Request;
 
 class CalenderController extends Controller
@@ -17,7 +18,7 @@ class CalenderController extends Controller
     public function __construct()
     {
         $this->data['zodiacs'] = Zodiac::all();
-        $this->data['year'] = (new \DateTime())->format('Y');
+        $this->data['year'] = (new DateTime())->format('Y');
     }
 
     public function index()
@@ -27,12 +28,15 @@ class CalenderController extends Controller
 
     public function search(Request $request)
     {
+        $request->validate([
+            'year' => 'required|max:4|min:4',
+        ]);
+
         $dates = Calender::where('year', $request->year)->where('zodiac_id', $request->zodiac_id);
         if ($dates->count() == 0) {
             $datesData = $this->buildCalender($request->year, $this->data['zodiacs']);
             Calender::insert($datesData);
         }
-
 
         $bestMonth = $this->getBestMonthByYearAndZodiacId($request->zodiac_id, $request->year);
         $bestZodiac = $this->getBestZodiacByYear($request->year);

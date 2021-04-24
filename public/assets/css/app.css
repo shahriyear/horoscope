@@ -1,6 +1,9 @@
 body {
     font-family: Lato;
 }
+p{
+    font-size:18px;
+}
 
 caption {
     font-size: 22pt;
@@ -8,15 +11,14 @@ caption {
     font-weight: 700;
 }
 
-table.calendar {
-    border: 1px solid #000;
-}
+ 
 
 td.day {
     width: 10%;
     height: 20px;
     border: 1px solid #000;
-    vertical-align: top
+    vertical-align: top;
+    font-weight: 700;
 }
 
 td.day span.day-date {
@@ -25,29 +27,63 @@ td.day span.day-date {
 }
 
 th.header {
-    background-color: #003972;
-    color: #fff;
+    background-color: #48D1CC;
+    color: #000;
     font-size: 14pt;
     padding: 5px;
 }
 
 .not-month {
-    background-color: #ddd;
+    background-color: #B0E0E6;
 }
-
-td.today {
-    background-color: #efefef;
-}
-
-td.day span.today-date {
-    font-size: 16pt;
-    color: red
-}
-
+ 
 .table-wrapper {
     height: 280px;
-    width: 23%;
-    display: block;
+    width: 435px;
+    justify-content: center;
+    display: flex;
     float: left;
-    margin: 10px;
+    padding: 10px;
+    border: 1px solid #F5F5DC;
+}
+.score-div{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.score-span{
+    height:20px;
+    width: 20px;
+    padding:10px;
+}
+
+.score-1{
+    background-color: #ff0000;
+}
+.score-2{
+    background-color: #FF6347;
+}
+.score-3{
+    background-color: #FF7F50;
+}
+.score-4{
+    background-color: #CD5C5C;
+}
+.score-5{
+    background-color: #F08080;
+}
+.score-6{
+    background-color: #E9967A;
+}
+.score-7{
+    background-color: #FA8072;
+}
+.score-8{
+    background-color: #32CD32;
+}
+.score-9{
+    background-color: #9ACD32;
+}
+.score-10{
+    background-color: #00ff00;
 }
