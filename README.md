@@ -1,4 +1,4 @@
-##Setup
+## Setup
 
 ```
 ➜  git clone https://github.com/shahriyear/horoscope.git 
