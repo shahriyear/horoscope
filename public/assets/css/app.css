@@ -1,0 +1,53 @@
+body {
+    font-family: Lato;
+}
+
+caption {
+    font-size: 22pt;
+    margin: 10px 0 20px 0;
+    font-weight: 700;
+}
+
+table.calendar {
+    border: 1px solid #000;
+}
+
+td.day {
+    width: 10%;
+    height: 20px;
+    border: 1px solid #000;
+    vertical-align: top
+}
+
+td.day span.day-date {
+    font-size: 14pt;
+    font-weight: 700;
+}
+
+th.header {
+    background-color: #003972;
+    color: #fff;
+    font-size: 14pt;
+    padding: 5px;
+}
+
+.not-month {
+    background-color: #ddd;
+}
+
+td.today {
+    background-color: #efefef;
+}
+
+td.day span.today-date {
+    font-size: 16pt;
+    color: red
+}
+
+.table-wrapper {
+    height: 280px;
+    width: 23%;
+    display: block;
+    float: left;
+    margin: 10px;
+}
