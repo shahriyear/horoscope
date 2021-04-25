@@ -35,7 +35,9 @@ class CalenderController extends Controller
         $dates = Calender::where('year', $request->year)->where('zodiac_id', $request->zodiac_id);
         if ($dates->count() == 0) {
             $datesData = $this->buildCalender($request->year, $this->data['zodiacs']);
-            Calender::insert($datesData);
+            if (!Calender::insert($datesData)) {
+                abort(500);
+            }
         }
 
         $bestMonth = $this->getBestMonthByYearAndZodiacId($request->zodiac_id, $request->year);

@@ -3,8 +3,8 @@
 ```
 ➜  git clone https://github.com/shahriyear/horoscope.git 
 
-➜  cd horoscope 
-
+➜  cd horoscope
+ 
 ➜  composer install
 
 ➜  php artisan migrate
