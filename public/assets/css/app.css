@@ -1,8 +1,9 @@
 body {
     font-family: Lato;
 }
-p{
-    font-size:18px;
+
+p {
+    font-size: 18px;
 }
 
 caption {
@@ -10,8 +11,6 @@ caption {
     margin: 10px 0 20px 0;
     font-weight: 700;
 }
-
- 
 
 td.day {
     width: 10%;
@@ -36,7 +35,7 @@ th.header {
 .not-month {
     background-color: #B0E0E6;
 }
- 
+
 .table-wrapper {
     height: 280px;
     width: 435px;
@@ -46,44 +45,54 @@ th.header {
     padding: 10px;
     border: 1px solid #F5F5DC;
 }
-.score-div{
+
+.score-div {
     text-align: center;
     margin-bottom: 25px;
 }
 
-.score-span{
-    height:20px;
+.score-span {
+    height: 20px;
     width: 20px;
-    padding:10px;
+    padding: 10px;
 }
 
-.score-1{
+.score-1 {
     background-color: #ff0000;
 }
-.score-2{
+
+.score-2 {
     background-color: #FF6347;
 }
-.score-3{
+
+.score-3 {
     background-color: #FF7F50;
 }
-.score-4{
+
+.score-4 {
     background-color: #CD5C5C;
 }
-.score-5{
+
+.score-5 {
     background-color: #F08080;
 }
-.score-6{
+
+.score-6 {
     background-color: #E9967A;
 }
-.score-7{
+
+.score-7 {
     background-color: #FA8072;
 }
-.score-8{
+
+.score-8 {
     background-color: #32CD32;
 }
-.score-9{
+
+.score-9 {
     background-color: #9ACD32;
 }
-.score-10{
+
+.score-10 {
     background-color: #00ff00;
 }

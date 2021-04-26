@@ -11,7 +11,8 @@ use Illuminate\Http\Request;
 
 class CalenderController extends Controller
 {
-    use CalenderTrait,CalenderHtmlTrait;
+    use CalenderTrait;
+    use CalenderHtmlTrait;
 
     protected $data;
 
@@ -33,21 +34,17 @@ class CalenderController extends Controller
         ]);
 
         $dates = Calender::where('year', $request->year)->where('zodiac_id', $request->zodiac_id);
-        if ($dates->count() == 0) {
+        if (0 == $dates->count()) {
             $datesData = $this->buildCalender($request->year, $this->data['zodiacs']);
-            if (!Calender::insert($datesData)) {
-                abort(500);
-            }
+            abort_if(!Calender::insert($datesData), 500);
         }
-
-        $bestMonth = $this->getBestMonthByYearAndZodiacId($request->zodiac_id, $request->year);
-        $bestZodiac = $this->getBestZodiacByYear($request->year);
 
         $this->data['year'] = $request->year;
         $this->data['zodiacName'] = Zodiac::find($request->zodiac_id)->name;
-        $this->data['bestMonth'] = $bestMonth;
-        $this->data['bestZodiac'] = $bestZodiac;
+        $this->data['bestMonth'] = $this->getBestMonthByYearAndZodiacId($request->zodiac_id, $request->year);
+        $this->data['bestZodiac'] = $this->getBestZodiacByYear($request->year);
         $this->data['html'] = $this->formatCalendarWithHtml($dates->get());
+
         return view('calender', $this->data);
     }
 }

@@ -13,7 +13,7 @@ class Calender extends Model
         'month',
         'year',
         'score',
-        'zodiac_id'
+        'zodiac_id',
     ];
 
     public function zodiac()
