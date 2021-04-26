@@ -39,7 +39,7 @@ trait CalenderHtmlTrait
         return $row;
     }
 
-    public function getDateWiseRows(array $month): string
+    public function getDateWiseRows(Collection $month): string
     {
         $dayOfWeek = 0;
         $rows = '<tr>';
@@ -80,7 +80,7 @@ trait CalenderHtmlTrait
     public function formatCalendarWithHtml(Collection $dates): string
     {
         $daysOfWeekRow = $this->getDayOfWeeksRow($this->getDaysOfWeek());
-        $monthWiseDates = $this->formatCalendarMonthWise($dates);
+        $monthWiseDates = $dates->groupBy('month');
 
         $calendar = '';
         foreach ($monthWiseDates as $key => $month) {

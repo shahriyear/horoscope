@@ -34,7 +34,8 @@ class CalenderController extends Controller
         ]);
 
         $dates = Calender::where('year', $request->year)->where('zodiac_id', $request->zodiac_id);
-        if (0 == $dates->count()) {
+
+        if (0 === $dates->count()) {
             $datesData = $this->buildCalender($request->year, $this->data['zodiacs']);
             abort_if(!Calender::insert($datesData), 500);
         }

@@ -10,13 +10,9 @@ trait CalenderTrait
 {
     public function buildCalender(int $year, Collection $zodiacs): array
     {
-        $zodiacWiseYear = [];
-        foreach ($zodiacs as $zodiac) {
-            $preparedYear = $this->buildYear($year, $zodiac->id);
-            array_push($zodiacWiseYear, ...$preparedYear);
-        }
-
-        return $zodiacWiseYear;
+        return $zodiacs->flatMap(function ($zodiac) use ($year) {
+            return $this->buildYear($year, $zodiac->id);
+        })->toArray();
     }
 
     public function buildYear(int $year, int $zodiacId): array
@@ -38,7 +34,6 @@ trait CalenderTrait
         $firstDayOfMonth = mktime(0, 0, 0, $month, 1, $year);
         $numberDays = date('t', $firstDayOfMonth);
         $currentDay = 1;
-
         $calendar = [];
 
         while ($currentDay <= $numberDays) {
@@ -53,16 +48,6 @@ trait CalenderTrait
         }
 
         return $calendar;
-    }
-
-    public function formatCalendarMonthWise(Collection $dates): array
-    {
-        $months = [];
-        foreach ($dates as $date) {
-            $months[$date->month][] = $date;
-        }
-
-        return $months;
     }
 
     public function getMaxValueKey($totals)
